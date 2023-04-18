@@ -1,6 +1,12 @@
-// use actix_web::{web, Scope};
-// use tracing_actix_web::TracingLogger;
+use actix_web::web;
 
-// use crate::handler::misc::healthy;
-// use crate::handler::passport::login;
-// use crate::handler::passport::logout;
+use crate::handler::misc;
+use crate::handler::passport;
+
+pub fn api(cfg: &mut web::ServiceConfig) {
+    cfg.service(
+        web::scope("/api")
+            .configure(passport::config)
+            .configure(misc::config),
+    );
+}

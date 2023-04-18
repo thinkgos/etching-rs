@@ -1,5 +1,18 @@
-use actix_web::{HttpResponse, Responder};
+use actix_web::{web, HttpResponse, Responder};
+use serde::Deserialize;
 
-pub async fn login() -> impl Responder {
+#[derive(Debug, Deserialize)]
+pub(crate) struct LoginRequest {
+    _username: String,
+    _password: String,
+}
+
+pub(crate) async fn login(req: web::Json<LoginRequest>) -> impl Responder {
+    tracing::info!("{:?}", req);
+
+    HttpResponse::Ok().finish()
+}
+
+pub(crate) async fn logout() -> impl Responder {
     HttpResponse::Ok().finish()
 }

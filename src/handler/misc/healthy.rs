@@ -1,5 +1,13 @@
 use actix_web::{HttpResponse, Responder};
+use serde::{Deserialize, Serialize};
 
-pub async fn healthy() -> impl Responder {
-    HttpResponse::Ok().finish()
+#[derive(Debug, Serialize, Deserialize)]
+struct HealthyResponse {
+    status: String,
+}
+
+pub(crate) async fn healthy() -> impl Responder {
+    HttpResponse::Ok().json(HealthyResponse {
+        status: "running".to_string(),
+    })
 }
