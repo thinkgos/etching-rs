@@ -12,7 +12,3 @@ pub(crate) async fn login(req: web::Json<LoginRequest>) -> impl Responder {
 
     HttpResponse::Ok().finish()
 }
-
-pub(crate) async fn logout() -> impl Responder {
-    HttpResponse::Ok().finish()
-}
