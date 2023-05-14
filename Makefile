@@ -1,4 +1,5 @@
-# database_url="mysql://root:123456@127.0.0.1:3306/dev"
+# include .env
+include temp/.env
 
 seaql-entity:
 	sea-orm-cli generate entity \
