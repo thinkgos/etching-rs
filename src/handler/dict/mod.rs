@@ -1,8 +1,9 @@
 use actix_web::{web, HttpResponse, Responder};
 use sea_orm::{DatabaseConnection, EntityTrait, QuerySelect};
+// use sea_query::{Expr, Query};
 use serde::{Deserialize, Serialize};
 
-use entity::{dict, dict::Entity as Dict};
+use entity::{dict, dict::Column as DictColumn, dict::Entity as Dict};
 
 pub fn config_v1(cfg: &mut web::ServiceConfig) {
     cfg.service(
@@ -19,6 +20,21 @@ struct ListDictResponse {
 
 pub(crate) async fn list_dict(db_conn: web::Data<DatabaseConnection>) -> impl Responder {
     let rows: Vec<dict::Model> = Dict::find().limit(100).all(db_conn.as_ref()).await.unwrap();
+
+    Dict::find()
+        .select_only()
+        .columns(vec![
+            DictColumn::Id,
+            DictColumn::Key,
+            DictColumn::Name,
+            DictColumn::IsPin,
+            DictColumn::Remark,
+            DictColumn::CreatedAt,
+            DictColumn::UpdatedAt,
+        ])
+        .all(db_conn.as_ref())
+        .await
+        .unwrap();
     HttpResponse::Ok().json(ListDictResponse { list: rows })
 }
 
