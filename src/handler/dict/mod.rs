@@ -3,7 +3,7 @@ use sea_orm::{DatabaseConnection, EntityTrait, QuerySelect};
 // use sea_query::{Expr, Query};
 use serde::{Deserialize, Serialize};
 
-use entity::{dict, dict::Column as DictColumn, dict::Entity as Dict};
+use entity::{dict, dict::Column as DictColumn, prelude::Dict};
 
 pub fn config_v1(cfg: &mut web::ServiceConfig) {
     cfg.service(

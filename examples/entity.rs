@@ -1,4 +1,4 @@
-use entity::{dict, dict::Column as DictColumn, dict::Entity as Dict};
+use entity::dict::Column as DictColumn;
 use sea_query::Iden;
 
 fn main() {
