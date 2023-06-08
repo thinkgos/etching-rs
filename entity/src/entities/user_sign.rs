@@ -12,10 +12,9 @@ pub struct Model {
     pub signed_subject_bank_card_id: i64,
     pub signed_subject_card_no: String,
     pub signed_subject_company_name: String,
+    pub signed_subject_bank_name: String,
     #[sea_orm(column_type = "Decimal(Some((12, 6)))")]
     pub crowdsourcing_ratio: Decimal,
-    #[sea_orm(column_type = "Decimal(Some((16, 4)))")]
-    pub balance: Decimal,
     pub remark: String,
     pub created_at: DateTime,
     pub updated_at: DateTime,

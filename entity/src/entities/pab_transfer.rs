@@ -24,12 +24,13 @@ pub struct Model {
     pub accounting_date_unix: i64,
     pub status: u32,
     pub operator: String,
-    pub operating_at: Option<DateTime>,
+    pub operating_at: i64,
     pub compensation_sub_acct_no: String,
     pub compensation_uid: i64,
     pub compensation_username: String,
     #[sea_orm(column_type = "Decimal(Some((16, 2)))")]
     pub compensation_tran_amt: Decimal,
+    pub register_bill_id: i64,
     pub created_at: DateTime,
     pub updated_at: DateTime,
 }

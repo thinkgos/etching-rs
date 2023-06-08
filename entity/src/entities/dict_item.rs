@@ -14,7 +14,7 @@ pub struct Model {
     pub value: String,
     pub sort: u32,
     pub remark: String,
-    pub is_enabled: i8,
+    pub is_enabled: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
 }

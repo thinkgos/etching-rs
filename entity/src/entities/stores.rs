@@ -11,7 +11,7 @@ pub struct Model {
     pub user_id: u64,
     pub name: String,
     pub icon: String,
-    pub r#type: i8,
+    pub r#type: u32,
     pub status: String,
     pub contact: String,
     pub address: String,

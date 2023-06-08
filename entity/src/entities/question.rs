@@ -12,7 +12,7 @@ pub struct Model {
     pub content: String,
     pub cover: String,
     pub desc: String,
-    pub visible: i8,
+    pub visible: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
     pub deleted_at: u64,

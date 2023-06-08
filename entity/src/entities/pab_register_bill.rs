@@ -12,6 +12,7 @@ pub struct Model {
     pub uid: i64,
     pub sub_acct_no: String,
     pub member_property: MemberProperty,
+    pub r#type: u32,
     pub order_no: String,
     #[sea_orm(column_type = "Decimal(Some((16, 2)))")]
     pub amt: Decimal,
@@ -22,7 +23,6 @@ pub struct Model {
     pub front_seq_no: String,
     pub revoke_cnsmr_seq_no: String,
     pub revoke_front_seq_no: String,
-    pub is_direct: i8,
     pub status: u32,
     pub created_at: DateTime,
     pub updated_at: DateTime,

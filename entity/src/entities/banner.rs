@@ -14,7 +14,7 @@ pub struct Model {
     pub image: String,
     pub desc: String,
     pub sort: u32,
-    pub visible: i8,
+    pub visible: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
 }

@@ -15,7 +15,7 @@ pub struct Model {
     pub tran_net_member_code: String,
     pub mobile: String,
     pub shop_name: String,
-    pub has_behavior_record: i8,
+    pub has_behavior_record: bool,
     pub bk_mer_sub_acct_no: String,
     pub bk_mer_tran_net_member_code: String,
     pub bk_normal_sub_acct_no: String,

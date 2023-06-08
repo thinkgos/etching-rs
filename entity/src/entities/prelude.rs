@@ -30,7 +30,6 @@ pub use super::orders_complaint::Entity as OrdersComplaint;
 pub use super::orders_enroll::Entity as OrdersEnroll;
 pub use super::orders_evaluation::Entity as OrdersEvaluation;
 pub use super::orders_new::Entity as OrdersNew;
-pub use super::orders_pay_compensation_log::Entity as OrdersPayCompensationLog;
 pub use super::pab_account::Entity as PabAccount;
 pub use super::pab_account_compensation_log::Entity as PabAccountCompensationLog;
 pub use super::pab_b2bic_notify::Entity as PabB2bicNotify;

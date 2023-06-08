@@ -20,7 +20,7 @@ pub struct Model {
     pub sex: u32,
     pub register_ip: String,
     pub is_auth: String,
-    pub is_crowdsourcing_agent: i8,
+    pub is_crowdsourcing_agent: bool,
     pub pay_passwd: String,
     pub region: String,
     pub birthday: i64,
@@ -31,8 +31,8 @@ pub struct Model {
     pub score: u64,
     pub count: u64,
     pub device_type: u32,
-    pub is_old_passwd: i8,
-    pub is_old_pay_passwd: i8,
+    pub is_old_passwd: bool,
+    pub is_old_pay_passwd: bool,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]

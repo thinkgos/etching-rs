@@ -18,7 +18,7 @@ pub struct Model {
     pub address: String,
     pub detail: String,
     pub tag: u32,
-    pub is_default: i8,
+    pub is_default: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
 }

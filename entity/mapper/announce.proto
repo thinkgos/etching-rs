@@ -2,9 +2,6 @@ syntax = "proto3";
 
 package mapper.announce;
 
-// import "protoc-gen-openapiv2/options/annotations.proto";
-// import "protosaber/seaql/seaql.proto";
-
 // Announce 公告-面向所有人的消息
 message Announce {
   int64 id = 1;
@@ -20,28 +17,4 @@ message Announce {
   int64 created_at = 6;
   int64 updated_at = 7;
   int64 deleted_at = 8;
-
-  //   option (things_go.seaql.options) = {
-  //     index: [
-  //       'PRIMARY KEY (`id`)'
-  //     ];
-  // };
-
-  // int64 id = 1 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { type: [ INTEGER ] },
-  //               (things_go.seaql.field) = { type: "bigint NOT NULL AUTO_INCREMENT" }];
-  // // 标题
-  // string title = 2 [(things_go.seaql.field) = { type: "varchar(255) NOT NULL" }];
-  // // 内容
-  // string content = 3 [(things_go.seaql.field) = { type: "varchar(2048) NOT NULL" }];
-  // // 优先级
-  // uint32 priority = 4 [(things_go.seaql.field) = { type: "int(10) unsigned NOT NULL DEFAULT '255'" }];
-  // // 是否显示
-  // bool visible = 5 [(things_go.seaql.field) = { type: "tinyint(1) NOT NULL DEFAULT '0'" }];
-  // // 发布时间
-  // int64 created_at = 6 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { type: [ INTEGER ] },
-  //                       (things_go.seaql.field) = { type: "datetime NOT NULL" }];
-  // int64 updated_at = 7 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { type: [ INTEGER ] },
-  //                       (things_go.seaql.field) = { type: "datetime NOT NULL" }];
-  // int64 deleted_at = 8 [(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_field) = { type: [ INTEGER ] },
-  //                       (things_go.seaql.field) = { type: "bigint NOT NULL DEFAULT '0'" }];
 }

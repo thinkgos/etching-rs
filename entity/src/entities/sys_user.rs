@@ -21,7 +21,7 @@ pub struct Model {
     pub last_login_ip: String,
     pub last_login_loc: String,
     pub last_login_time: Option<DateTime>,
-    pub need_change: i8,
+    pub need_change: bool,
     pub status: u32,
     pub creator: String,
     pub updator: String,

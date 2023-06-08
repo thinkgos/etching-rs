@@ -29,6 +29,7 @@ bytes = "1"
 prost = "0.11"
 # Only necessary if using Protobuf well-known types:
 prost-types = "0.11"
+bcrypt = "0.14"
 
 [build-dependencies]
 prost-build = "0.11"

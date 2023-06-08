@@ -10,7 +10,7 @@ pub struct Model {
     pub id: i64,
     pub title: String,
     pub content: String,
-    pub visible: i8,
+    pub visible: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
     pub deleted_at: i64,

@@ -11,7 +11,7 @@ pub struct Model {
     #[sea_orm(unique)]
     pub key: String,
     pub name: String,
-    pub is_pin: i8,
+    pub is_pin: bool,
     pub remark: String,
     pub created_at: DateTime,
     pub updated_at: DateTime,

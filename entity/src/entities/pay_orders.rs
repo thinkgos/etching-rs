@@ -11,6 +11,7 @@ pub struct Model {
     pub pay_id: u64,
     pub orders_id: u64,
     pub channel_id: String,
+    pub prepay_channel_id: String,
     pub channel: i32,
     pub status: i32,
     #[sea_orm(column_type = "Decimal(Some((16, 2)))")]

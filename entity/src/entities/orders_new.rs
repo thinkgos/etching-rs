@@ -26,7 +26,7 @@ pub struct Model {
     #[sea_orm(column_type = "Decimal(Some((16, 2)))")]
     pub total_amount: Decimal,
     pub status: u32,
-    pub send_at: Option<DateTime>,
+    pub send_at: i64,
     pub created_at: DateTime,
     pub updated_at: DateTime,
     pub deleted_at: i64,

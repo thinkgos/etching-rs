@@ -9,8 +9,9 @@ pub struct Model {
     #[sea_orm(primary_key, auto_increment = false)]
     pub orders_id: i64,
     pub uid: i64,
-    pub has_apply: i8,
-    pub has_abandon: i8,
+    pub crowd_uid: i64,
+    pub has_apply: bool,
+    pub has_abandon: bool,
     pub created_at: DateTime,
 }
 

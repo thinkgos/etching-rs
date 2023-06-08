@@ -10,7 +10,7 @@ pub struct Model {
     pub id: i64,
     pub name: String,
     pub desc: String,
-    pub is_enabled: i8,
+    pub is_enabled: bool,
     pub creator: String,
     pub updator: String,
     pub created_at: DateTime,

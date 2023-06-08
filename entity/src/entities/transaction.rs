@@ -9,6 +9,7 @@ pub struct Model {
     #[sea_orm(primary_key, auto_increment = false)]
     pub id: u64,
     pub user_id: u64,
+    pub crowd_uid: i64,
     pub trade_no: String,
     pub voucher_id: u64,
     pub r#use: i32,
@@ -20,7 +21,7 @@ pub struct Model {
     pub fee: Decimal,
     #[sea_orm(column_type = "Decimal(Some((16, 2)))")]
     pub balance: Decimal,
-    pub has_refund: i8,
+    pub has_refund: bool,
     #[sea_orm(column_type = "Decimal(Some((16, 2)))")]
     pub refund_amount: Decimal,
     pub receipt: String,

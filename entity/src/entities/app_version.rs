@@ -9,7 +9,7 @@ pub struct Model {
     #[sea_orm(primary_key)]
     pub id: i64,
     pub client_type: u32,
-    pub is_force: i8,
+    pub is_force: bool,
     pub version: String,
     pub name: String,
     pub app_url: String,
@@ -17,7 +17,7 @@ pub struct Model {
     pub remark: String,
     pub hint: String,
     pub button_label: String,
-    pub is_enabled: i8,
+    pub is_enabled: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
     pub deleted_at: i64,

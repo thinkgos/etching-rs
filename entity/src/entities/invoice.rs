@@ -46,7 +46,7 @@ pub struct Model {
     pub excluding_tax_invoice_amount: Decimal,
     pub invoice_body_id: i64,
     pub invoice_body_name: String,
-    pub is_auto_add_invoice_body: i8,
+    pub is_auto_add_invoice_body: bool,
     pub invoice_body_message: String,
     pub reason: String,
     pub apply_status: u32,

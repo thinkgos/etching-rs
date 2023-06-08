@@ -11,7 +11,7 @@ pub struct Model {
     pub uid: i64,
     pub relate_id: i64,
     pub card_no: String,
-    pub is_success: i8,
+    pub is_success: bool,
     pub status: u32,
     pub created_at: DateTime,
     pub updated_at: DateTime,

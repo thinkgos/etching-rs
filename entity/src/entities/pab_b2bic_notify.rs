@@ -49,6 +49,7 @@ pub struct Model {
     pub fee: Decimal,
     pub remark: String,
     pub status: u32,
+    pub retry: u32,
     pub created_at: DateTime,
     pub updated_at: DateTime,
 }

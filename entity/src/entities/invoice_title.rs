@@ -21,7 +21,7 @@ pub struct Model {
     pub receiver_email: String,
     pub receiver_mobile: String,
     pub receiver_address: String,
-    pub is_default: i8,
+    pub is_default: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
     pub deleted_at: i64,

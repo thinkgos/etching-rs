@@ -21,8 +21,8 @@ pub struct Model {
     pub icon: String,
     pub remark: String,
     pub sort: u32,
-    pub visible: i8,
-    pub is_enabled: i8,
+    pub visible: bool,
+    pub is_enabled: bool,
     pub created_at: DateTime,
     pub updated_at: DateTime,
 }

@@ -32,7 +32,6 @@ pub mod orders_complaint;
 pub mod orders_enroll;
 pub mod orders_evaluation;
 pub mod orders_new;
-pub mod orders_pay_compensation_log;
 pub mod pab_account;
 pub mod pab_account_compensation_log;
 pub mod pab_b2bic_notify;

@@ -1,5 +1,8 @@
 use prost_build;
+use std::error::Error;
 
-fn main() {
-    prost_build::compile_protos(&["mapper/announce.proto"], &["entities/src"]).unwrap();
+fn main() -> Result<(), Box<dyn Error>> {
+    prost_build::compile_protos(&["mapper/announce.proto"], &["mapper/"])?;
+
+    Ok(())
 }

@@ -12,7 +12,7 @@ pub struct Model {
     pub real_name: String,
     pub id_card: String,
     pub mobile: String,
-    pub has_join: i8,
+    pub has_join: bool,
     pub member_uid: i64,
     pub remark: String,
     pub created_at: DateTime,

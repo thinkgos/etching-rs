@@ -16,7 +16,7 @@ pub struct Model {
     pub fee: Decimal,
     pub trade_no: String,
     pub receipt_account: String,
-    pub is_virtual: i8,
+    pub is_virtual: bool,
     pub status: u32,
     pub created_at: DateTime,
     pub updated_at: DateTime,

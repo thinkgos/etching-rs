@@ -11,7 +11,7 @@ pub struct Model {
     pub orders_id: u64,
     pub user_id: u64,
     pub evaluators: u64,
-    pub score: i8,
+    pub score: u8,
     pub tags: String,
     pub content: Option<String>,
     pub annexes: String,

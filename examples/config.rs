@@ -4,4 +4,6 @@ use etching::configuration;
 fn main() {
     let c = configuration::get_configuration();
     println!("{:#?}", c.unwrap());
+    let s = "s";
+    s.to_owned()
 }
