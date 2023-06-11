@@ -1,20 +1,18 @@
 use actix_web::{web, App, HttpServer};
-use sea_orm::Database;
-use secrecy::ExposeSecret;
 use tracing_actix_web::TracingLogger;
 
 use crate::configuration;
 use crate::router;
+use crate::runtime::Runtime;
 
 pub async fn run(c: &configuration::Setting) -> Result<(), anyhow::Error> {
-    let pool = Database::connect(c.database.url().expose_secret()).await?;
-
-    let db_pool = web::Data::new(pool);
+    let rt = Runtime::new(c).await?;
+    let rt = web::Data::new(rt);
 
     let bind_addr = c.app.addr();
     Ok(HttpServer::new(move || {
         App::new()
-            .app_data(db_pool.clone())
+            .app_data(rt.clone())
             .wrap(TracingLogger::default())
             .configure(router::api)
     })

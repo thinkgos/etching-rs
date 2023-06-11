@@ -1,10 +1,8 @@
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let hashed_passwd = bcrypt::hash("123456", bcrypt::DEFAULT_COST)?;
+    let passwd = "123456";
 
-    println!("{}", hashed_passwd);
-
-    let b = bcrypt::verify("123456", &hashed_passwd)?;
-    println!("{}", b);
-
+    let hashed_passwd = bcrypt::hash(passwd, bcrypt::DEFAULT_COST)?;
+    let b = bcrypt::verify(passwd, &hashed_passwd)?;
+    assert!(b);
     Ok(())
 }

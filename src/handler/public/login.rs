@@ -1,14 +1,42 @@
-use actix_web::{web, HttpResponse, Responder};
-use serde::Deserialize;
+use actix_web::{web, Responder};
+use sea_orm::{ColumnTrait, EntityTrait, QueryFilter};
+use serde::{Deserialize, Serialize};
+
+use entity::{prelude::SysUser, sys_user::Column as SysUserColumn};
+
+use crate::error::Error;
+use crate::runtime::Runtime;
 
 #[derive(Debug, Deserialize)]
 pub(crate) struct LoginRequest {
-    _username: String,
-    _password: String,
+    username: String,
+    password: String,
 }
 
-pub(crate) async fn login(req: web::Json<LoginRequest>) -> impl Responder {
-    tracing::info!("{:?}", req);
+#[derive(Debug, Serialize)]
+pub(crate) struct LoginResponse {
+    token: String,
+    expires_at: i64,
+}
 
-    HttpResponse::Ok().finish()
+pub(crate) async fn login(
+    rt: web::Data<Runtime>,
+    req: web::Json<LoginRequest>,
+) -> Result<impl Responder, Error> {
+    let user = SysUser::find()
+        .filter(SysUserColumn::Name.eq(&req.username))
+        .one(&rt.db_pool)
+        .await?
+        .ok_or(Error::UserOrPassword)?;
+
+    let verified =
+        bcrypt::verify(&req.password, &user.passwd).map_err(|_| Error::UserOrPassword)?;
+    if !verified {
+        return Err(Error::UserOrPassword);
+    }
+
+    Ok(web::Json(LoginResponse {
+        token: "token".to_owned(),
+        expires_at: 10000,
+    }))
 }

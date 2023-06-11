@@ -1,5 +1,5 @@
 use sea_orm::entity::EntityName;
-use sea_orm::{DbBackend, Schema, Statement};
+use sea_orm::{DbBackend, Schema};
 use std::error::Error;
 use std::fs::File;
 use std::io::Write;

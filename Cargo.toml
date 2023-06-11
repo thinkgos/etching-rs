@@ -29,7 +29,15 @@ bytes = "1"
 prost = "0.11"
 # Only necessary if using Protobuf well-known types:
 prost-types = "0.11"
+jsonwebtoken = "8"
+rand = "0.8"
+
+# crypto
 bcrypt = "0.14"
+cipher = "0.4"
+aes = "0.8"
+cbc = "0.1"
+base64 = "0.21"
 
 [build-dependencies]
 prost-build = "0.11"
