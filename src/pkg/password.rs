@@ -48,9 +48,9 @@ impl Paypal {
 
     fn encrypt(&self, key: &[u8], plain_text: &[u8]) -> Result<String, anyhow::Error> {
         let block_size = match key.len() {
-            x if x == 16 => Ok(Aes128CbcEnc::block_size()),
-            x if x == 24 => Ok(Aes192CbcEnc::block_size()),
-            x if x == 32 => Ok(Aes256CbcEnc::block_size()),
+            16 => Ok(Aes128CbcEnc::block_size()),
+            24 => Ok(Aes192CbcEnc::block_size()),
+            32 => Ok(Aes256CbcEnc::block_size()),
             x => Err(anyhow!("invalid key size, {x}")),
         }?;
 
@@ -62,16 +62,15 @@ impl Paypal {
         let pt_len = plain_text.len();
         let buf_len = (pt_len as f64 / block_size as f64).ceil() as usize * block_size;
 
-        let mut buf = Vec::new();
-        buf.resize(buf_len, 0);
+        let mut buf = vec![0; buf_len];
         buf[..pt_len].copy_from_slice(plain_text);
 
         let cipher_text = match key.len() {
-            x if x == 16 => Aes128CbcEnc::new(key.into(), iv.as_slice().into())
+            16 => Aes128CbcEnc::new(key.into(), iv.as_slice().into())
                 .encrypt_padded_mut::<Pkcs7>(&mut buf, pt_len),
-            x if x == 24 => Aes192CbcEnc::new(key.into(), iv.as_slice().into())
+            24 => Aes192CbcEnc::new(key.into(), iv.as_slice().into())
                 .encrypt_padded_mut::<Pkcs7>(&mut buf, pt_len),
-            x if x == 32 => Aes256CbcEnc::new(key.into(), iv.as_slice().into())
+            32 => Aes256CbcEnc::new(key.into(), iv.as_slice().into())
                 .encrypt_padded_mut::<Pkcs7>(&mut buf, pt_len),
             _ => panic!("never reached here"),
         };
@@ -85,9 +84,9 @@ impl Paypal {
 
     fn decrypt(&self, key: &[u8], cipher_text: &[u8]) -> Result<Vec<u8>, anyhow::Error> {
         let block_size = match key.len() {
-            x if x == 16 => Ok(Aes128CbcEnc::block_size()),
-            x if x == 24 => Ok(Aes192CbcEnc::block_size()),
-            x if x == 32 => Ok(Aes256CbcEnc::block_size()),
+            16 => Ok(Aes128CbcEnc::block_size()),
+            24 => Ok(Aes192CbcEnc::block_size()),
+            32 => Ok(Aes256CbcEnc::block_size()),
             x => Err(anyhow!("invalid key size, {x}")),
         }?;
         let buf: Vec<u8> = base64std.decode(cipher_text)?;
@@ -101,15 +100,9 @@ impl Paypal {
         (self.iv_checker)(iv)?;
 
         let plain_text = match key.len() {
-            x if x == 16 => {
-                Aes128CbcDec::new(key.into(), iv.into()).decrypt_padded_mut::<Pkcs7>(&mut data)
-            }
-            x if x == 24 => {
-                Aes192CbcDec::new(key.into(), iv.into()).decrypt_padded_mut::<Pkcs7>(&mut data)
-            }
-            x if x == 32 => {
-                Aes256CbcDec::new(key.into(), iv.into()).decrypt_padded_mut::<Pkcs7>(&mut data)
-            }
+            16 => Aes128CbcDec::new(key.into(), iv.into()).decrypt_padded_mut::<Pkcs7>(&mut data),
+            24 => Aes192CbcDec::new(key.into(), iv.into()).decrypt_padded_mut::<Pkcs7>(&mut data),
+            32 => Aes256CbcDec::new(key.into(), iv.into()).decrypt_padded_mut::<Pkcs7>(&mut data),
             _ => panic!("never reached here"),
         };
         let palin_text = plain_text.map_err(|e| anyhow::anyhow!("decrypt failure, {:?}", e))?;
@@ -133,8 +126,8 @@ impl Password {
     // CbcEncrypt 中,
     // IV生成规则: 使用时间戳ms值, 不足16位, 前面补p, 然后拼接到加密后的密文前面
 
-    const PASSWD_KEY_PREFIX: &str = "y0C<$?,^!hm4WTEt"; // 前缀16位, 密码加密key
-    const PASSWD_KEY_SUFFIX: &str = "ogevQ)&ZEo@-yxjK"; // 后缀16位, 密码加密key
+    const PASSWD_KEY_PREFIX: &'static str = "y0C<$?,^!hm4WTEt"; // 前缀16位, 密码加密key
+    const PASSWD_KEY_SUFFIX: &'static str = "ogevQ)&ZEo@-yxjK"; // 后缀16位, 密码加密key
 
     // PASSWD_KEY_PREFIX + unique_id + PASSWD_KEY_SUFFIX, 拼接取前32位
     fn key(unique_id: &str) -> String {

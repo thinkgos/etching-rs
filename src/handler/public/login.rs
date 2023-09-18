@@ -1,3 +1,4 @@
+use actix_web::post;
 use actix_web::{web, Responder};
 use sea_orm::{ColumnTrait, EntityTrait, QueryFilter};
 use serde::{Deserialize, Serialize};
@@ -19,6 +20,7 @@ pub(crate) struct LoginResponse {
     expires_at: i64,
 }
 
+#[post("/public/login")]
 pub(crate) async fn login(
     rt: web::Data<Runtime>,
     req: web::Json<LoginRequest>,

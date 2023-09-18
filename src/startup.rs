@@ -2,6 +2,7 @@ use actix_web::{web, App, HttpServer};
 use tracing_actix_web::TracingLogger;
 
 use crate::configuration;
+use crate::middleware::simple::SayHi;
 use crate::router;
 use crate::runtime::Runtime;
 
@@ -14,6 +15,7 @@ pub async fn run(c: &configuration::Setting) -> Result<(), anyhow::Error> {
         App::new()
             .app_data(rt.clone())
             .wrap(TracingLogger::default())
+            .wrap(SayHi)
             .configure(router::api)
     })
     .bind(bind_addr)?

@@ -1,6 +1,6 @@
 app:
   host: 127.0.0.1
-  port: 9587
+  port: 9527
 
 database:
   dialect: mysql

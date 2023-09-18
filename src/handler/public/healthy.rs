@@ -1,16 +1,19 @@
+use actix_web::get;
 use actix_web::{web, HttpResponse, Responder};
-use sea_orm::{DatabaseConnection, EntityTrait, QuerySelect};
+use sea_orm::{EntityTrait, QuerySelect};
 use serde::{Deserialize, Serialize};
 
 use entity::{dict, dict::Entity as Dict};
+
+use crate::runtime::Runtime;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct HealthyResponse {
     status: String,
 }
-
-pub(crate) async fn healthy(db_conn: web::Data<DatabaseConnection>) -> impl Responder {
-    let cc: Vec<dict::Model> = Dict::find().limit(100).all(db_conn.as_ref()).await.unwrap();
+#[get("/public/healthy")]
+pub(crate) async fn healthy(rt: web::Data<Runtime>) -> impl Responder {
+    let cc: Vec<dict::Model> = Dict::find().limit(100).all(&rt.db_pool).await.unwrap();
     tracing::info!("{:?}", cc);
 
     HttpResponse::Ok().json(HealthyResponse {

@@ -1,6 +1,6 @@
 [package]
 name = "etching"
-version = "0.1.0"
+version = "0.0.1-rc0"
 edition = "2021"
 authors = ["thinkgos <thinkgo@aliyun.com>"]
 
@@ -13,12 +13,13 @@ entity = {path = "entity"}
 actix-web = "4"
 serde = { version = "1", features = ["derive"] }
 tokio = { version = "1", features = ["full"] }
+futures-util = "0.3"
 anyhow = "1"
 thiserror = "1"
 tracing = {version = "0.1", features = ["log"]}
 tracing-subscriber = { version = "0.3", features = ["registry", "env-filter"] }
 tracing-bunyan-formatter = "0.3"
-tracing-log = "0.1"
+tracing-log = "0.2"
 tracing-actix-web = "0.7"
 secrecy = {version = "0.8", features = ["serde"]}
 sea-orm = {version = "0", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros"]}
@@ -26,18 +27,18 @@ sea-query = "0"
 config = "0.13"
 
 bytes = "1"
-prost = "0.11"
+prost = "0.12"
 # Only necessary if using Protobuf well-known types:
-prost-types = "0.11"
-jsonwebtoken = "8"
+prost-types = "0.12"
+jsonwebtoken = "9"
 rand = "0.8"
 
 # crypto
-bcrypt = "0.14"
+bcrypt = "0.15"
 cipher = "0.4"
 aes = "0.8"
 cbc = "0.1"
 base64 = "0.21"
 
 [build-dependencies]
-prost-build = "0.11"
+prost-build = "0.12"

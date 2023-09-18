@@ -8,6 +8,7 @@ pub struct Runtime {
 }
 
 impl Runtime {
+    // 创建运行时
     pub async fn new(c: &configuration::Setting) -> Result<Self, anyhow::Error> {
         let db_pool = Database::connect(c.database.url().expose_secret()).await?;
 

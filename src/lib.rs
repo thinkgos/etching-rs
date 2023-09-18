@@ -1,6 +1,7 @@
 pub mod configuration;
 pub mod error;
 pub mod handler;
+pub mod middleware;
 pub mod pkg;
 pub mod router;
 pub mod runtime;

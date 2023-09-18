@@ -6,11 +6,13 @@ use crate::handler::public;
 
 pub fn api(cfg: &mut web::ServiceConfig) {
     cfg.service(
-        web::scope("/api").service(
-            web::scope("/v1")
-                .configure(passport::config_v1)
-                .configure(public::config_v1)
-                .configure(dict::config_v1),
-        ),
+        web::scope("/api")
+            .service(
+                web::scope("/v1")
+                    .configure(passport::config_v1)
+                    .configure(public::config_v1)
+                    .configure(dict::config_v1),
+            )
+            .service(web::scope("/v2").configure(public::config_v2)),
     );
 }

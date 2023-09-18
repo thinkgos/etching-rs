@@ -1,6 +1,6 @@
 [package]
 name = "entity"
-version = "0.1.0"
+version = "0.0.1-rc0"
 edition = "2021"
 authors = ["thinkgos <thinkgo@aliyun.com>"]
 
@@ -10,9 +10,9 @@ authors = ["thinkgos <thinkgo@aliyun.com>"]
 sea-orm = {version = "0", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros"]}
 serde = { version = "1", features = ["derive"] }
 bytes = "1"
-prost = "0.11"
+prost = "0.12"
 # Only necessary if using Protobuf well-known types:
-prost-types = "0.11"
+prost-types = "0.12"
 
 [build-dependencies]
-prost-build = "0.11"
+prost-build = "0.12"
