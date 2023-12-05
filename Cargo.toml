@@ -1,14 +1,22 @@
 [package]
-name = "etching"
-version = "0.0.1-rc0"
+name = "etching-rs"
+version = "0.0.1-rc1"
+authors = ["thinkgo <thinkgo@aliyun.com>"]
 edition = "2021"
-authors = ["thinkgos <thinkgo@aliyun.com>"]
-
+rust-version = "1.70.0"
+description = "etching is an admin backend."
+keywords =[
+    "backend"
+]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/thinkgos/etching-rs"
+repository = "https://github.com/thinkgos/etching-rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 # local dependencies
-entity = {path = "entity"}
+entity = {path = "entity", version = "0.0.1-rc0"}
 
 actix-web = "4"
 serde = { version = "1", features = ["derive"] }
@@ -46,8 +54,14 @@ cbc = "0.1"
 base64 = "0.21"
 
 # swagger
-utoipa = { version = "4", features = ["actix_extras"] }
+utoipa = { version = "4", features = ["actix_extras", "chrono"] }
 utoipa-swagger-ui = { version = "5", features = ["actix-web"] }
 
 [build-dependencies]
 prost-build = "0.12"
+
+
+[workspace]
+members = [
+    "entity"
+]

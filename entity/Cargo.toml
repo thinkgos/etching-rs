@@ -1,6 +1,6 @@
 [package]
 name = "entity"
-version = "0.0.1-rc0"
+version = "0.0.1-rc1"
 edition = "2021"
 authors = ["thinkgos <thinkgo@aliyun.com>"]
 
@@ -13,6 +13,9 @@ bytes = "1"
 prost = "0.12"
 # Only necessary if using Protobuf well-known types:
 prost-types = "0.12"
+
+# swagger
+utoipa = { version = "4", features = ["actix_extras", "chrono"] }
 
 [build-dependencies]
 prost-build = "0.12"

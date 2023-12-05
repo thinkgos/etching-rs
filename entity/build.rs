@@ -1,4 +1,3 @@
-use prost_build;
 use std::error::Error;
 
 fn main() -> Result<(), Box<dyn Error>> {

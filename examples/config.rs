@@ -1,4 +1,4 @@
-use etching::configuration;
+use etching_rs::configuration;
 
 /// env APP_DEPLOY=local cargo run --example config
 fn main() {
