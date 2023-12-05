@@ -31,12 +31,10 @@ pub(crate) async fn login(
         .await?
         .ok_or(Error::UserOrPassword)?;
 
-    let verified =
-        bcrypt::verify(&req.password, &user.passwd).map_err(|_| Error::UserOrPassword)?;
-    if !verified {
-        return Err(Error::UserOrPassword);
-    }
-
+    bcrypt::verify(&req.password, &user.passwd)
+        .map_err(|_| Error::UserOrPassword)?
+        .then_some(())
+        .ok_or(Error::UserOrPassword)?;
     Ok(web::Json(LoginResponse {
         token: "token".to_owned(),
         expires_at: 10000,
