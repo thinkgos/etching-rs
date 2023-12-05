@@ -4,15 +4,22 @@ use crate::handler::dict;
 use crate::handler::passport;
 use crate::handler::public;
 
+#[derive(utoipa::OpenApi)]
+#[openapi(
+    info(
+        title = "etching server",
+        description = include_str!("../../README.md"),
+        contact (name = "thinkgos"),
+    ),
+    servers((url = "/api", description = "develop server")),
+    paths(public::login, public::healthy))]
+pub struct ApiDoc;
+
 pub fn api(cfg: &mut web::ServiceConfig) {
     cfg.service(
         web::scope("/api")
-            .service(
-                web::scope("/v1")
-                    .configure(passport::config_v1)
-                    .configure(public::config_v1)
-                    .configure(dict::config_v1),
-            )
-            .service(web::scope("/v2").configure(public::config_v2)),
+            .configure(passport::config)
+            .configure(public::config)
+            .configure(dict::config),
     );
 }

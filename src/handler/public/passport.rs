@@ -8,20 +8,29 @@ use entity::{prelude::SysUser, sys_user::Column as SysUserColumn};
 use crate::error::Error;
 use crate::runtime::Runtime;
 
-#[derive(Debug, Deserialize)]
-pub(crate) struct LoginRequest {
+#[derive(Debug, Deserialize, utoipa::ToSchema)]
+struct LoginRequest {
+    /// 用户名
     username: String,
+    /// 用户密码
     password: String,
 }
 
-#[derive(Debug, Serialize)]
-pub(crate) struct LoginResponse {
+#[derive(Debug, Serialize, utoipa::ToSchema)]
+struct LoginResponse {
     token: String,
     expires_at: i64,
 }
 
-#[post("/public/login")]
-pub(crate) async fn login(
+/// 用户登陆
+#[utoipa::path(
+    request_body = inline(LoginRequest),
+    responses(
+        (status = 200, body = inline(LoginResponse), description = "login successfully")
+    ),
+)]
+#[post("/v1/public/login")]
+pub async fn login(
     rt: web::Data<Runtime>,
     req: web::Json<LoginRequest>,
 ) -> Result<impl Responder, Error> {

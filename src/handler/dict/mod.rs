@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 
 use entity::{dict, dict::Column as DictColumn, prelude::Dict};
 
-pub fn config_v1(cfg: &mut web::ServiceConfig) {
+pub fn config(cfg: &mut web::ServiceConfig) {
     cfg.service(
         web::scope("/dict")
             .route("", web::get().to(list_dict))
