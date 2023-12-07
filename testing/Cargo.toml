@@ -1,6 +1,6 @@
 [package]
-name = "entity"
-version.workspace =true
+name = "testing"
+version.workspace = true
 authors.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -14,15 +14,17 @@ repository.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+entity = {path = "../entity"}
+
+actix-web.workspace = true
+
+tokio.workspace = true
+futures-util.workspace = true
+
 sea-orm.workspace = true
+sea-query.workspace = true
+
 serde.workspace = true
-bytes.workspace = true
-prost.workspace = true
-# Only necessary if using Protobuf well-known types:
-prost-types.workspace = true
 
-# swagger
-utoipa.workspace = true
-
-[build-dependencies]
-prost-build.workspace = true
+jsonwebtoken.workspace = true
+bcrypt.workspace = true

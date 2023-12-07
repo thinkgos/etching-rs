@@ -1,5 +1,16 @@
-[package]
-name = "etching-rs"
+[workspace]
+resolver = "2"
+members = [
+    "app",
+    "testing",
+    "entity",
+]
+default-members = [
+    "app",
+    "testing",
+]
+
+[workspace.package]
 version = "0.0.1-rc1"
 authors = ["thinkgo <thinkgo@aliyun.com>"]
 edition = "2021"
@@ -12,28 +23,30 @@ license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://github.com/thinkgos/etching-rs"
 repository = "https://github.com/thinkgos/etching-rs"
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
-# local dependencies
-entity = {path = "entity", version = "0.0.1-rc0"}
+[workspace.dependencies]
 
+# web
 actix-web = "4"
-serde = { version = "1", features = ["derive"] }
+
+# async
 tokio = { version = "1", features = ["full"] }
 futures-util = "0.3"
-anyhow = "1"
-thiserror = "1"
+
+# utilities
+rand = "0.8"
+bytes = "1"
 secrecy = {version = "0.8", features = ["serde"]}
+jsonwebtoken = "9"
 config = "0.13"
 tap = "1"
 
-bytes = "1"
-prost = "0.12"
-# Only necessary if using Protobuf well-known types:
-prost-types = "0.12"
-jsonwebtoken = "9"
-rand = "0.8"
+# error 
+anyhow = "1"
+thiserror = "1"
+
+# serialization
+serde = { version = "1", features = ["derive"] }
 
 # tracing
 tracing = {version = "0.1", features = ["log"]}
@@ -46,6 +59,15 @@ tracing-actix-web = "0.7"
 sea-orm = {version = "0", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros"]}
 sea-query = "0"
 
+# swagger
+utoipa = { version = "4", features = ["actix_extras", "chrono"] }
+utoipa-swagger-ui = { version = "5", features = ["actix-web"] }
+
+# protobuf
+prost-build = "0.12"
+prost = "0.12"
+prost-types = "0.12"
+
 # crypto
 bcrypt = "0.15"
 cipher = "0.4"
@@ -53,15 +75,10 @@ aes = "0.8"
 cbc = "0.1"
 base64 = "0.21"
 
-# swagger
-utoipa = { version = "4", features = ["actix_extras", "chrono"] }
-utoipa-swagger-ui = { version = "5", features = ["actix-web"] }
+[profile.dev.package."*"]
+opt-level = 3
 
-[build-dependencies]
-prost-build = "0.12"
-
-
-[workspace]
-members = [
-    "entity"
-]
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1

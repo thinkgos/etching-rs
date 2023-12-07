@@ -1,8 +1,8 @@
 use std::io;
 
-use etching_rs::configuration;
-use etching_rs::startup;
-use etching_rs::telemetry;
+use app::configuration;
+use app::startup;
+use app::telemetry;
 
 #[tokio::main]
 async fn main() -> Result<(), anyhow::Error> {
