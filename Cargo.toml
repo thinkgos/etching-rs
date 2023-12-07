@@ -1,13 +1,13 @@
 [workspace]
 resolver = "2"
 members = [
-    "app",
-    "testing",
-    "entity",
+    "etching-app",
+    "etching-testing",
+    "etching-entity",
 ]
 default-members = [
-    "app",
-    "testing",
+    "etching-app",
+    "etching-testing",
 ]
 
 [workspace.package]

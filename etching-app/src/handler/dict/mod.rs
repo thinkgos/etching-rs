@@ -1,7 +1,7 @@
 use actix_web::{get, web, HttpResponse, Responder};
 use sea_orm::{DatabaseConnection, EntityTrait, QuerySelect};
 // use sea_query::{Expr, Query};
-use entity::{dict, dict::Column as DictColumn, prelude::Dict};
+use etching_entity::{dict, dict::Column as DictColumn, prelude::Dict};
 use serde::{Deserialize, Serialize};
 use utoipa::{IntoParams, ToSchema};
 

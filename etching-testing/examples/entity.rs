@@ -1,4 +1,4 @@
-use entity::dict::Column as DictColumn;
+use etching_entity::dict::Column as DictColumn;
 use sea_query::Iden;
 
 fn main() {

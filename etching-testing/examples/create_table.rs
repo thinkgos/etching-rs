@@ -4,7 +4,7 @@ use std::error::Error;
 use std::fs::File;
 use std::io::Write;
 
-use entity::prelude::*;
+use etching_entity::prelude::*;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let db_mysql = DbBackend::MySql;

@@ -1,5 +1,5 @@
 [package]
-name = "app"
+name = "etching-app"
 version.workspace =true
 authors.workspace = true
 edition.workspace = true
@@ -14,7 +14,7 @@ repository.workspace = true
 
 [dependencies]
 # local dependencies
-entity = {path = "../entity"}
+etching-entity = {path = "../etching-entity"}
 
 # web
 actix-web.workspace = true

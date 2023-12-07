@@ -3,7 +3,7 @@ use actix_web::{web, Responder};
 use sea_orm::{ColumnTrait, EntityTrait, QueryFilter};
 use serde::{Deserialize, Serialize};
 
-use entity::{prelude::SysUser, sys_user::Column as SysUserColumn};
+use etching_entity::{prelude::SysUser, sys_user::Column as SysUserColumn};
 
 use crate::error::Error;
 use crate::runtime::Runtime;
