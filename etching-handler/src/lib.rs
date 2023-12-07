@@ -1,12 +1,12 @@
+pub mod dict;
+pub mod passport;
+pub mod public;
+
 use actix_web::web;
 use utoipa::{
     openapi::security::{ApiKey, ApiKeyValue, HttpAuthScheme, HttpBuilder, SecurityScheme},
     Modify,
 };
-
-use crate::handler::dict;
-use crate::handler::passport;
-use crate::handler::public;
 
 #[derive(utoipa::OpenApi)]
 #[openapi(

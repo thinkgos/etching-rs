@@ -3,10 +3,10 @@ use tracing_actix_web::TracingLogger;
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
+use etching_handler::{configure_api, ApiDoc};
+use etching_middleware::simple::SayHi;
+
 use crate::configuration;
-use crate::middleware::simple::SayHi;
-use crate::router;
-use crate::router::ApiDoc;
 use crate::runtime::Runtime;
 
 pub async fn run(c: &configuration::Setting) -> Result<(), anyhow::Error> {
@@ -25,7 +25,7 @@ pub async fn run(c: &configuration::Setting) -> Result<(), anyhow::Error> {
             .service(
                 SwaggerUi::new("/swagger-ui/{_:.*}").url("/api-docs/openapi.json", openapi.clone()),
             )
-            .configure(router::configure_api)
+            .configure(configure_api)
     })
     .bind(bind_addr)?
     .run()

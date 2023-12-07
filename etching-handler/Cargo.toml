@@ -1,0 +1,30 @@
+[package]
+name = "etching-handler"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description.workspace = true
+keywords.workspace = true
+license.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+etching-entity = { path = "../etching-entity" }
+etching-types = {path = "../etching-types"}
+
+utoipa-swagger-ui.workspace = true
+utoipa.workspace = true
+
+actix-web.workspace = true
+serde.workspace = true
+sea-orm.workspace = true
+
+tracing.workspace = true
+
+bcrypt.workspace = true
+

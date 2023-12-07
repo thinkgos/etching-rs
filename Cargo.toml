@@ -4,6 +4,10 @@ members = [
     "etching-app",
     "etching-testing",
     "etching-entity",
+    "etching-types",
+    "etching-utils",
+    "etching-handler",
+    "etching-middleware",
 ]
 default-members = [
     "etching-app",

@@ -3,7 +3,7 @@ use std::env;
 use secrecy::{ExposeSecret, Secret};
 use serde::Deserialize;
 
-use crate::pkg::deploy::Deploy;
+use etching_utils::deploy::Deploy;
 
 // 配置
 #[derive(Debug, Deserialize)]

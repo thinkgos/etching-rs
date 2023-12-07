@@ -1,12 +1,10 @@
 use actix_web::post;
 use actix_web::{web, Responder};
-use sea_orm::{ColumnTrait, EntityTrait, QueryFilter};
+use sea_orm::{ColumnTrait, DatabaseConnection, EntityTrait, QueryFilter};
 use serde::{Deserialize, Serialize};
 
 use etching_entity::{prelude::SysUser, sys_user::Column as SysUserColumn};
-
-use crate::error::Error;
-use crate::runtime::Runtime;
+use etching_types::error::Error;
 
 /// login 请求
 #[derive(Debug, Deserialize, utoipa::ToSchema)]
@@ -39,12 +37,12 @@ pub struct LoginResponse {
 )]
 #[post("/public/login")]
 pub async fn login(
-    rt: web::Data<Runtime>,
+    db: web::Data<DatabaseConnection>,
     req: web::Json<LoginRequest>,
 ) -> Result<impl Responder, Error> {
     let user = SysUser::find()
         .filter(SysUserColumn::Name.eq(&req.username))
-        .one(&rt.db_pool)
+        .one(db.as_ref())
         .await?
         .ok_or(Error::UserOrPassword)?;
 

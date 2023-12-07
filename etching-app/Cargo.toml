@@ -13,8 +13,12 @@ repository.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-# local dependencies
+# local
 etching-entity = {path = "../etching-entity"}
+etching-types = {path = "../etching-types"}
+etching-utils = {path = "../etching-utils"}
+etching-handler = {path = "../etching-handler"}
+etching-middleware = {path = "../etching-middleware"}
 
 # web
 actix-web.workspace = true
