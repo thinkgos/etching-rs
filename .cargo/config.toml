@@ -1,0 +1,5 @@
+[env]
+
+APP_DEPLOY_MODE="local"
+
+# RUST_LOG=""

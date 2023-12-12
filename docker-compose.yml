@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  etching-admin:
+    image: etching
+    restart: unless-stopped
+    ports:
+      - 9587:9587
+    networks:
+      - infra
+    environment:
+      - APP_DEPLOY_MODE=local
+      - APP_APP.PORT=9999
+networks:
+  infra:
+    external: true

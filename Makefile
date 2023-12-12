@@ -8,4 +8,4 @@ seaql-entity:
     -o entity/src/entities
 
 local:
-	@env APP_DEPLOY_MODE=local APP_APP.PORT=9999 cargo run
+	@env APP_DEPLOY_MODE=local APP_APP.PORT=9999 cargo run -p etching-app
