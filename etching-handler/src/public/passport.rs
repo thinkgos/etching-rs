@@ -3,8 +3,8 @@ use actix_web::{web, Responder};
 use sea_orm::{ColumnTrait, DatabaseConnection, EntityTrait, QueryFilter};
 use serde::{Deserialize, Serialize};
 
-use etching_entity::{prelude::SysUser, sys_user::Column as SysUserColumn};
-use etching_types::error::Error;
+use crates_entity::{prelude::SysUser, sys_user::Column as SysUserColumn};
+use crates_types::error::Error;
 
 /// login 请求
 #[derive(Debug, Deserialize, utoipa::ToSchema)]

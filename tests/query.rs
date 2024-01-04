@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod test {
-    use etching_entity::{announce::Column as AnnounceColumn, announce::Entity as Announce};
+    use crates_entity::{announce::Column as AnnounceColumn, announce::Entity as Announce};
 
     use sea_orm::{DbBackend, EntityTrait, QuerySelect, QueryTrait};
 

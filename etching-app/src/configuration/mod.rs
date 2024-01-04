@@ -3,7 +3,7 @@ use std::env;
 use secrecy::{ExposeSecret, Secret};
 use serde::Deserialize;
 
-use etching_utils::deploy::Deploy;
+use crates_utils::deploy::Deploy;
 
 // 配置
 #[derive(Debug, Deserialize)]
@@ -79,11 +79,11 @@ pub fn get_configuration() -> Result<Setting, anyhow::Error> {
 
     let deploy: Deploy = env::var("APP_DEPLOY_MODE")
         .unwrap_or_else(|_| "dev".into())
-        .try_into()?;
+        .parse()?;
 
     let settings = config::Config::builder()
         .add_source(config::File::from(config_dir.join("app")))
-        .add_source(config::File::from(config_dir.join(deploy.as_str())))
+        .add_source(config::File::from(config_dir.join(deploy.to_string())))
         .add_source(
             // 环境变量: APP_XX.YY, 例如端口: APP_APP.PORT=9999
             config::Environment::with_prefix("APP")

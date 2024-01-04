@@ -3,11 +3,11 @@ resolver = "2"
 members = [
     "etching-app",
     "etching-testing",
-    "etching-entity",
-    "etching-types",
-    "etching-utils",
     "etching-handler",
     "etching-middleware",
+    "crates-entity",
+    "crates-types",
+    "crates-utils",
 ]
 default-members = [
     "etching-app",
@@ -44,6 +44,7 @@ secrecy = {version = "0.8", features = ["serde"]}
 jsonwebtoken = "9"
 config = "0.13"
 tap = "1"
+strum = {version = "0.25", features = ["derive"]}
 
 # error 
 anyhow = "1"

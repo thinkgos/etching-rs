@@ -14,8 +14,8 @@ repository.workspace = true
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-etching-entity = { path = "../etching-entity" }
-etching-types = {path = "../etching-types"}
+crates-entity = { path = "../crates-entity" }
+crates-types = {path = "../crates-types"}
 
 utoipa-swagger-ui.workspace = true
 utoipa.workspace = true

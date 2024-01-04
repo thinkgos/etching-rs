@@ -18,9 +18,9 @@ path = "src/main.rs"
 
 [dependencies]
 # local
-etching-entity = {path = "../etching-entity"}
-etching-types = {path = "../etching-types"}
-etching-utils = {path = "../etching-utils"}
+crates-entity = {path = "../crates-entity"}
+crates-types = {path = "../crates-types"}
+crates-utils = {path = "../crates-utils"}
 etching-handler = {path = "../etching-handler"}
 etching-middleware = {path = "../etching-middleware"}
 
