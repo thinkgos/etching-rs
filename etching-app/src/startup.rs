@@ -9,7 +9,7 @@ use etching_middleware::simple::SayHi;
 use crate::configuration;
 use crate::runtime::Runtime;
 
-pub async fn run(c: &configuration::Setting) -> Result<(), anyhow::Error> {
+pub async fn run(c: &configuration::Configuration) -> Result<(), anyhow::Error> {
     let rt = Runtime::new(c).await?;
     let rt = web::Data::new(rt);
     let db_pool = web::Data::new(rt.db_pool.clone());
