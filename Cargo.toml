@@ -66,7 +66,7 @@ sea-query = "0"
 
 # swagger
 utoipa = { version = "4", features = ["actix_extras", "chrono"] }
-utoipa-swagger-ui = { version = "5", features = ["actix-web"] }
+utoipa-swagger-ui = { version = "6", features = ["actix-web"] }
 
 # protobuf
 prost-build = "0.12"
