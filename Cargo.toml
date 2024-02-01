@@ -42,7 +42,7 @@ rand = "0.8"
 bytes = "1"
 secrecy = {version = "0.8", features = ["serde"]}
 jsonwebtoken = "9"
-config = "0.13"
+config = "0.14"
 tap = "1"
 strum = {version = "0.25", features = ["derive"]}
 
