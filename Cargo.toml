@@ -44,7 +44,7 @@ secrecy = {version = "0.8", features = ["serde"]}
 jsonwebtoken = "9"
 config = "0.14"
 tap = "1"
-strum = {version = "0.25", features = ["derive"]}
+strum = {version = "0.26", features = ["derive"]}
 
 # error 
 anyhow = "1"
