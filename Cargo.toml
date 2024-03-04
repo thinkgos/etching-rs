@@ -78,7 +78,7 @@ bcrypt = "0.15"
 cipher = "0.4"
 aes = "0.8"
 cbc = "0.1"
-base64 = "0.21"
+base64 = "0.22"
 
 [workspace.lints.rust]
 unsafe_code = "forbid"
