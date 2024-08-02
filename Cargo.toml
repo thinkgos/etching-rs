@@ -70,7 +70,7 @@ utoipa-swagger-ui = { version = "7", features = ["actix-web"] }
 
 # protobuf
 prost-build = "0.13"
-prost = "0.12"
+prost = "0.13"
 prost-types = "0.13"
 
 # crypto
