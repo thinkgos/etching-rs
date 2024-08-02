@@ -69,7 +69,7 @@ utoipa = { version = "4", features = ["actix_extras", "chrono"] }
 utoipa-swagger-ui = { version = "7", features = ["actix-web"] }
 
 # protobuf
-prost-build = "0.12"
+prost-build = "0.13"
 prost = "0.12"
 prost-types = "0.12"
 
