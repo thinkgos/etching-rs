@@ -61,7 +61,7 @@ tracing-log = "0.2"
 tracing-actix-web = "0.7"
 
 # orm
-sea-orm = {version = "0", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros"]}
+sea-orm = {version = "1", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros"]}
 sea-query = "0"
 
 # swagger
