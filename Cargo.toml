@@ -65,7 +65,7 @@ sea-orm = {version = "1", features = [ "sqlx-mysql", "runtime-tokio-rustls", "ma
 sea-query = "0"
 
 # swagger
-utoipa = { version = "4", features = ["actix_extras", "chrono"] }
+utoipa = { version = "5", features = ["actix_extras", "chrono"] }
 utoipa-swagger-ui = { version = "7", features = ["actix-web"] }
 
 # protobuf
