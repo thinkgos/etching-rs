@@ -48,7 +48,7 @@ strum = {version = "0.26", features = ["derive"]}
 
 # error 
 anyhow = "1"
-thiserror = "1"
+thiserror = "2"
 
 # serialization
 serde = { version = "1", features = ["derive"] }
