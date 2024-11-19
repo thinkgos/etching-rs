@@ -74,7 +74,7 @@ prost = "0.13"
 prost-types = "0.13"
 
 # crypto
-bcrypt = "0.15"
+bcrypt = "0.16"
 cipher = "0.4"
 aes = "0.8"
 cbc = "0.1"
